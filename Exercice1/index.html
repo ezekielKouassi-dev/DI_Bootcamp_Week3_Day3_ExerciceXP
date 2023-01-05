@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+    p {
+        background: yellow;
+        color: red;
+    }
+    </style>
+</head>
+<body>
+    <div id="container"></div>
+    <button id="clear">Clear Interval</button>
+
+    <script>
+        let div = document.getElementById("container");
+        function addParagraph() {
+            let paragrah = document.createElement("p");
+            let textNode = document.createTextNode('Hello World!');
+            paragrah.appendChild(textNode);
+            div.appendChild(paragrah);
+        }
+
+        // part 1
+
+        setTimeout(() => {
+            alert("hello world!");
+        }, 2000);
+
+        // part 2
+        
+        setTimeout(addParagraph, 2000);
+
+        // part 3
+
+        let timer = setInterval(() => {
+            if(div.childElementCount == 5) {
+                clearInterval(timer);
+                return;
+            }
+
+            addParagraph();
+        }, 2000);
+
+
+    </script>
+</body>
+</html>
